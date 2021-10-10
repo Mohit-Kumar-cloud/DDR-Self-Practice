@@ -13,7 +13,8 @@ class BubbleSorter extends Sorter
 
         arr = array.clone();
         int temp;
-        for(int i=0;i<arr.length;i++)
+        boolean exit = false;
+        for(int i=0;i<arr.length &&!exit;i++)
         {
             int flag = 0;
             for(int j=0; j<arr.length-1-i;j++)
@@ -28,7 +29,7 @@ class BubbleSorter extends Sorter
             }
             if(flag==0)
             {
-                break;
+                exit=true;
             }
         }
         return arr;
@@ -66,14 +67,17 @@ public class abs
 {
     public static void main(String[] args) {
         int[] arr = new int[] {36,19,29,12,5};
-        Sorter obj = new SelectionSorter();
+        Sorter obj = new BubbleSorter();
 
         int[] sorted_arr;
 
         sorted_arr = obj.sort(arr);
-
-        System.out.println(arr[0]);
-        System.out.println(sorted_arr[0]);
+        System.out.print("arr:");
+        for(int i=0;i<arr.length;i++)
+        System.out.printf("%d ",arr[i]);
+        System.out.printf("\nsorted_arr:");
+        for(int i=0;i<sorted_arr.length;i++)
+        System.out.printf("%d ",sorted_arr[i]);
 
         
     }
